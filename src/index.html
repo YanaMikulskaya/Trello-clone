@@ -1,0 +1,109 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Trello-clone</title>
+  <link rel="stylesheet" href="./scss/app.scss">
+  <link type="module" src="./js/app.js">
+</head>
+
+<body class="d-flex flex-column vh-100">
+  <header class="header flex-shrink-0">
+    <div class="container-fluid">
+      <div class="header__wrapper d-flex justify-content-between p-3 rounded mt-2 bg-primary shadow">
+        <p class="header__title h1 text-white m-0">Trello</p>
+        <div class="header__clock rounded d-flex justify-content-center align-items-center bg-white p-2">12:15</div>
+      </div>
+    </div>
+  </header>
+  <main class="board flex-grow-1 overflow-hidden">
+    <div class="container-fluid h-100">
+      <div class="board__wrapper row g-0 gap-2 h-100 py-2 shadow">
+        <div class="board__column column col p-0 d-flex flex-column border-0 rounded overflow-hidden shadow h-100">
+          <div class="column__header d-flex justify-content-between p-3 bg-info align-items-center text-white flex-shrink-0">
+            <h2 class="column__header-text m-0 h4"> TODO:</h2>
+            <p class="column__header-count m-0 h4">3</p>
+          </div>
+          <div class="column__list p-2 overflow-auto d-flex flex-column gap-2 flex-grow-1">
+           <!-- <div class="card p-3 bg-info-subtle d-flex gap-3 flex-row border-0">
+              <div class="card__wrapp d-flex flex-column gap-2 flex-grow-1">
+                <h4 class="card__title h5">Помыть</h4>
+                <p class="card__description">kljfsd;fh;d;bk'dafkb' Lorem ipsum dolor, sit amet consectetur adipisicing elit. Officiis perspiciatis delectus quibusdam veritatis ex nesciunt libero et corporis at voluptatibus aliquam repellat, numquam sequi dolore, voluptate, fugit asperiores? Nisi, unde.</p>
+                <p class="card__user m-0 mt-auto h6">Вишенка</p>
+              </div>
+              <div class="card__wrapp d-flex flex-column gap-2 flex-shrink-0">
+                <button class="card__btn btn btn-sm btn-light" type="button">EDIT</button>
+                <button class="card__btn btn btn-sm btn-light" type="button">DELETE</button>
+                <select class="card__select form-select form-select-sm" name="status" id="status">
+                  <option value="todo">TODO</option>
+                  <option value="inProgress">IN PROGRESS</option>
+                  <option value="done">DONE</option>
+                </select>
+                <span class="card__date mt-auto text-end"> 17.18.25 19.33</span>
+              </div>
+            </div>-->
+          </div>
+          <button class="column__btn btn btn-info btn-lg w-100 rounded-0 mt-auto text-white" type="button">Add todo</button>
+        </div>
+        <div class="board__column column col p-0 d-flex flex-column border-0 rounded overflow-hidden shadow h-100">
+          <div class="column__header d-flex justify-content-between p-3 bg-warning align-items-center text-white flex-shrink-0">
+            <h2 class="column__header-text m-0 h4"> IN PROGRESS:</h2>
+            <p class="column__header-count m-0 h4">3</p>
+          </div>
+          <div class="column__list p-2 overflow-auto d-flex flex-column gap-2 flex-grow-1">
+           <!-- <div class="card p-3 bg-warning-subtle d-flex gap-4 p-2 flex-row border-0">
+              <div class="card__wrapp d-flex flex-column gap-2 flex-grow-1">
+                <h4 class="card__title h5">Помыть</h4>
+                <p class="card__description">kljfsd;fh;d;bk'dafkb' Lorem ipsum dolor, sit amet consectetur adipisicing elit. Officiis perspiciatis delectus quibusdam veritatis ex nesciunt libero et corporis at voluptatibus aliquam repellat, numquam sequi dolore, voluptate, fugit asperiores? Nisi, unde.</p>
+                <p class="card__user m-0 mt-auto h6">Вишенка</p>
+              </div>
+              <div class="card__wrapp d-flex flex-column gap-2 flex-shrink-0">
+                <button class="card__btn btn btn-sm btn-light" type="button">EDIT</button>
+                <button class="card__btn btn btn-sm btn-light" type="button">DELETE</button>
+                <select class="card__select form-select form-select-sm" name="status" id="status2">
+                  <option value="todo">TODO</option>
+                  <option value="inProgress">IN PROGRESS</option>
+                  <option value="done">DONE</option>
+                </select>
+                <span class="card__date mt-auto text-end"> 17.18.25 19.33</span>
+              </div>
+            </div>-->            
+          </div>    
+        </div>
+        <div class="board__column column col p-0 d-flex flex-column border-0 rounded overflow-hidden shadow h-100">
+          <div class="column__header d-flex justify-content-between p-3 bg-success align-items-center text-white flex-shrink-0">
+            <h2 class="column__header-text m-0 h4"> DONE:</h2>
+            <p class="column__header-count m-0 h4">5</p>
+          </div>
+          <div class="column__list p-2 overflow-auto d-flex flex-column gap-2 flex-grow-1">
+            <!--<div class="card p-3 bg-success-subtle d-flex gap-4 p-2 flex-row border-0">
+              <div class="card__wrapp d-flex flex-column gap-2 flex-grow-1">
+                <h4 class="card__title h5">Помыть</h4>
+                <p class="card__description">kljfsd;fh;d;bk'dafkb' Lorem ipsum dolor, sit amet consectetur adipisicing elit. Officiis perspiciatis delectus quibusdam veritatis ex nesciunt libero et corporis at voluptatibus aliquam repellat, numquam sequi dolore, voluptate, fugit asperiores? Nisi, unde.</p>
+                <p class="card__user m-0 mt-auto h6">Вишенка</p>
+              </div>
+              <div class="card__wrapp d-flex flex-column gap-2 flex-shrink-0">
+                <button class="card__btn btn btn-sm btn-light" type="button">EDIT</button>
+                <button class="card__btn btn btn-sm btn-light" type="button">DELETE</button>
+                <select class="card__select form-select form-select-sm" name="status" id="status3">
+                  <option value="todo">TODO</option>
+                  <option value="inProgress">IN PROGRESS</option>
+                  <option value="done">DONE</option>
+                </select>
+                <span class="card__date mt-auto text-end"> 17.18.25 19.33</span>
+              </div>
+            </div>-->
+          </div>
+          <button class="column__btn btn btn-success btn-lg w-100 rounded-0 mt-auto" type="button">Delete all</button>
+
+        </div>
+      </div>
+    </div>
+
+  </main>
+
+</body>
+
+</html>
