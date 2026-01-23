@@ -1,4 +1,4 @@
-import { clockEl } from './dom';
+import { clockEl } from './dom.js';
 
 export function createClock() {
     function updateClock() {

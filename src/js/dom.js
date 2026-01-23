@@ -1,7 +1,8 @@
-export const clockEl = document.querySelector('.header__clock');
+const clockEl = document.querySelector('.header__clock');
+const addTodoBtnEl = document.querySelector('#addTodoBtn');
 
 
-
-/*export {
+export {
     clockEl,
-}*/
+    addTodoBtnEl
+};
