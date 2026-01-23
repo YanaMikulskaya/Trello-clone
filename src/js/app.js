@@ -1,3 +1,16 @@
-import { createClock } from './createClock';
+import { createClock, } from './createClock.js';
+import { addTodoBtnEl } from './dom.js'
+import { handleShowModal } from './modal.js';
 
-createClock()
+createClock();
+
+addTodoBtnEl.addEventListener('click', handleShowModal);
+
+
+
+
+
+
+
+
+
