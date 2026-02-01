@@ -25,83 +25,32 @@
           <div
             class="column__header d-flex justify-content-between p-3 bg-info align-items-center text-white flex-shrink-0">
             <h2 class="column__header-text m-0 h4"> TODO:</h2>
-            <p class="column__header-count m-0 h4">3</p>
+            <p class="column__header-count m-0 h4" id="countTodo">3</p>
           </div>
-          <div class="column__list p-2 overflow-auto d-flex flex-column gap-2 flex-grow-1">
-            <!-- <div class="card p-3 bg-info-subtle d-flex gap-3 flex-row border-0">
-              <div class="card__wrapp d-flex flex-column gap-2 flex-grow-1">
-                <h4 class="card__title h5">Помыть</h4>
-                <p class="card__description">kljfsd;fh;d;bk'dafkb' Lorem ipsum dolor, sit amet consectetur adipisicing elit. Officiis perspiciatis delectus quibusdam veritatis ex nesciunt libero et corporis at voluptatibus aliquam repellat, numquam sequi dolore, voluptate, fugit asperiores? Nisi, unde.</p>
-                <p class="card__user m-0 mt-auto h6">Вишенка</p>
-              </div>
-              <div class="card__wrapp d-flex flex-column gap-2 flex-shrink-0">
-                <button class="card__btn btn btn-sm btn-light" type="button">EDIT</button>
-                <button class="card__btn btn btn-sm btn-light" type="button">DELETE</button>
-                <select class="card__select form-select form-select-sm" name="status" id="status">
-                  <option value="todo">TODO</option>
-                  <option value="inProgress">IN PROGRESS</option>
-                  <option value="done">DONE</option>
-                </select>
-                <span class="card__date mt-auto text-end"> 17.18.25 19.33</span>
-              </div>
-            </div>-->
+          <div class="column__list p-2 overflow-auto d-flex flex-column gap-2 flex-grow-1" id="listTodo">
           </div>
-          <button class="column__btn btn btn-info btn-lg w-100 rounded-0 mt-auto text-white" id="addTodoBtn" type="button">Add
+          <button class="column__btn btn btn-info btn-lg w-100 rounded-0 mt-auto text-white" id="addTodoBtn"
+            type="button" data-role="add">Add
             todo</button>
         </div>
         <div class="board__column column col p-0 d-flex flex-column border-0 rounded overflow-hidden shadow h-100">
           <div
             class="column__header d-flex justify-content-between p-3 bg-warning align-items-center text-white flex-shrink-0">
             <h2 class="column__header-text m-0 h4"> IN PROGRESS:</h2>
-            <p class="column__header-count m-0 h4">3</p>
+            <p class="column__header-count m-0 h4" id="countInProgress">3</p>
           </div>
-          <div class="column__list p-2 overflow-auto d-flex flex-column gap-2 flex-grow-1">
-            <!-- <div class="card p-3 bg-warning-subtle d-flex gap-4 p-2 flex-row border-0">
-              <div class="card__wrapp d-flex flex-column gap-2 flex-grow-1">
-                <h4 class="card__title h5">Помыть</h4>
-                <p class="card__description">kljfsd;fh;d;bk'dafkb' Lorem ipsum dolor, sit amet consectetur adipisicing elit. Officiis perspiciatis delectus quibusdam veritatis ex nesciunt libero et corporis at voluptatibus aliquam repellat, numquam sequi dolore, voluptate, fugit asperiores? Nisi, unde.</p>
-                <p class="card__user m-0 mt-auto h6">Вишенка</p>
-              </div>
-              <div class="card__wrapp d-flex flex-column gap-2 flex-shrink-0">
-                <button class="card__btn btn btn-sm btn-light" type="button">EDIT</button>
-                <button class="card__btn btn btn-sm btn-light" type="button">DELETE</button>
-                <select class="card__select form-select form-select-sm" name="status" id="status2">
-                  <option value="todo">TODO</option>
-                  <option value="inProgress">IN PROGRESS</option>
-                  <option value="done">DONE</option>
-                </select>
-                <span class="card__date mt-auto text-end"> 17.18.25 19.33</span>
-              </div>
-            </div>-->
+          <div class="column__list p-2 overflow-auto d-flex flex-column gap-2 flex-grow-1" id="listInProgress">
           </div>
         </div>
         <div class="board__column column col p-0 d-flex flex-column border-0 rounded overflow-hidden shadow h-100">
           <div
             class="column__header d-flex justify-content-between p-3 bg-success align-items-center text-white flex-shrink-0">
             <h2 class="column__header-text m-0 h4"> DONE:</h2>
-            <p class="column__header-count m-0 h4">5</p>
+            <p class="column__header-count m-0 h4" id="countDone">5</p>
           </div>
-          <div class="column__list p-2 overflow-auto d-flex flex-column gap-2 flex-grow-1">
-            <!--<div class="card p-3 bg-success-subtle d-flex gap-4 p-2 flex-row border-0">
-              <div class="card__wrapp d-flex flex-column gap-2 flex-grow-1">
-                <h4 class="card__title h5">Помыть</h4>
-                <p class="card__description">kljfsd;fh;d;bk'dafkb' Lorem ipsum dolor, sit amet consectetur adipisicing elit. Officiis perspiciatis delectus quibusdam veritatis ex nesciunt libero et corporis at voluptatibus aliquam repellat, numquam sequi dolore, voluptate, fugit asperiores? Nisi, unde.</p>
-                <p class="card__user m-0 mt-auto h6">Вишенка</p>
-              </div>
-              <div class="card__wrapp d-flex flex-column gap-2 flex-shrink-0">
-                <button class="card__btn btn btn-sm btn-light" type="button">EDIT</button>
-                <button class="card__btn btn btn-sm btn-light" type="button">DELETE</button>
-                <select class="card__select form-select form-select-sm" name="status" id="status3">
-                  <option value="todo">TODO</option>
-                  <option value="inProgress">IN PROGRESS</option>
-                  <option value="done">DONE</option>
-                </select>
-                <span class="card__date mt-auto text-end"> 17.18.25 19.33</span>
-              </div>
-            </div>-->
+          <div class="column__list p-2 overflow-auto d-flex flex-column gap-2 flex-grow-1" id="listDone">
           </div>
           <button class="column__btn btn btn-success btn-lg w-100 rounded-0 mt-auto" type="button">Delete all</button>
-
         </div>
       </div>
     </div>
@@ -110,22 +59,36 @@
       <div class="modal-dialog  modal-dialog-centered">
         <div class="modal-content p-4 bg-primary">
           <form class="modal__form d-flex flex-column gap-3" id="form" method="get">
-            <input class="modal__input form-control" type="text" name="title" id="title" placeholder="Title" required>
+            <input class="modal__input form-control" type="text" name="title" id="modalTitle" placeholder="Title"
+              required>
             <textarea class="modal__textarea form-control" rows="4" name="description" id="modalDescription"
               placeholder="Description"></textarea>
             <div class="modal__wrapp  d-flex gap-2">
               <select class="modal__select form-select" name="user" id="modalUser" required>
-              <option value="" selected disabled>Select user</option>
-            </select>
-            <button class="modal__btn btn btn-sm btn-light" id="cancel" type="button">Cancel</button>
-            <button class="modal__btn btn btn-sm btn-light" id="add" type="submit">Confirm</button>
+                <option value="" selected disabled>Select user</option>
+              </select>
+              <button class="modal__btn btn btn-sm btn-light" id="cancel" type="button">Cancel</button>
+              <button class="modal__btn btn btn-sm btn-light" id="add" type="submit">Confirm</button>
             </div>
           </form>
         </div>
       </div>
     </div>
+    <!-- Modal -->
+    <div class="modal fade" tabindex="-1" id="confirmModal">
+      <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content bg-danger-subtle">
+          <div class="modal-body">
+            <p class="h5 mb-3 text-center">Warning!</p>
+            <div class="modal__wrapp d-flex gap-2 justify-content-end">
+              <button type="button" class="btn btn-light" data-bs-dismiss="modal">Cancel</button>
+              <button type="button" class="btn btn-danger" id="confirmDeleteBtn">Confirm</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
   </main>
-
 </body>
 
 </html>
