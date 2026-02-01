@@ -6,6 +6,7 @@ const countDoneEl = document.querySelector('#countDone');
 const listTodoEl = document.querySelector('#listTodo');
 const listInProgressEl = document.querySelector('#listInProgress');
 const listDoneEl = document.querySelector('#listDone');
+const deleteAllBtnEl = document.querySelector('#deleteAll');
 
 
 export {
@@ -16,5 +17,6 @@ export {
     countDoneEl,
     listTodoEl,
     listInProgressEl,
-    listDoneEl
+    listDoneEl,
+    deleteAllBtnEl
 };

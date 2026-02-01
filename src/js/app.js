@@ -1,8 +1,8 @@
 import { createClock } from './createClock.js';
 import { renderTodos } from './renderTodos.js';
-import { addTodoBtnEl, listTodoEl, listInProgressEl, listDoneEl } from './dom.js'
-import { handleShowModal } from './modal.js';
-import { handleClickTodo, handleChangeSelectStatus } from './cards.js';
+import { addTodoBtnEl, listTodoEl, listInProgressEl, listDoneEl, deleteAllBtnEl } from './dom.js'
+import { handleShowModal, handleShowModalConfirm } from './modals.js';
+import { handleClickTodo, handleChangeSelectStatus} from './cards.js';
 import { initUserSelect } from './users.js';
 
 document.addEventListener('DOMContentLoaded', async () => {
@@ -12,7 +12,7 @@ document.addEventListener('DOMContentLoaded', async () => {
 });
 
 addTodoBtnEl.addEventListener('click', handleShowModal);
-
+deleteAllBtnEl.addEventListener('click', handleShowModalConfirm);
 listTodoEl.addEventListener('click', handleClickTodo);
 listInProgressEl.addEventListener('click', handleClickTodo);
 listDoneEl.addEventListener('click', handleClickTodo);

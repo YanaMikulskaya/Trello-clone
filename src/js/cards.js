@@ -1,7 +1,6 @@
-import Modal from 'bootstrap/js/dist/modal';
 import { getIndexTodoById } from './filter';
 import { state, setState } from './state';
-import { handleShowModal } from './modal';
+import { handleShowModal, handleShowModalConfirm } from './modals';
 
 // HTML card
 function buildTodoTemplate({ id, title, description, createdAt, status, user }) {
@@ -46,7 +45,7 @@ function buildTodoTemplate({ id, title, description, createdAt, status, user }) 
 function handleClickTodo(event) {
     const { role } = event.target.dataset;
     if (role === 'delete') {
-        handleClickDeleteTodo(event);
+        handleShowModalConfirm(event);
     }
     if (role === 'edit') {
         handleShowModal(event);
@@ -69,29 +68,27 @@ function handleChangeSelectStatus(event) {
     };
 };
 
-function handleClickDeleteTodo(event) {
-    const todoEl = event.target.closest('.card');
-    const id = todoEl.dataset.id;
+function deleteTodo(id) {
+    const indexTodo = getIndexTodoById(id);
+    const newData = structuredClone(state.data);
+    newData.splice(indexTodo, 1);
 
-    const modal = new Modal('#confirmModal')
-    modal.show();
-
-    const confirmDeleteBtnEl = document.querySelector('#confirmDeleteBtn');
-    confirmDeleteBtnEl.onclick = () => {
-        const indexTodo = getIndexTodoById(id);
-        const newData = structuredClone(state.data);
-        newData.splice(indexTodo, 1);
-
-        setState({
-            data: newData,
-        });
-        modal.hide();
-    };
+    setState({
+        data: newData,
+    });
 };
+
+function deleteAll() {
+    const newData = state.data.filter(todo => todo.status !== 'done');
+    setState({
+        data: newData,
+    });
+}
 
 export {
     buildTodoTemplate,
     handleClickTodo,
     handleChangeSelectStatus,
-    handleClickDeleteTodo
+    deleteTodo,
+    deleteAll
 };

@@ -2,6 +2,7 @@ import Modal from 'bootstrap/js/dist/modal';
 import { Todo } from './constructors.js';
 import { getIndexTodoById } from './filter.js';
 import { setState, state } from './state.js';
+import { deleteAll, deleteTodo } from './cards.js';
 
 let modal = null;
 
@@ -75,3 +76,21 @@ function handleCanselSubmit(event) {
         modal.hide();
     }
 };
+
+export function handleShowModalConfirm(event) {
+    const { role } = event.target.dataset;
+    const modal = new Modal('#confirmModal')
+    modal.show();
+
+    const confirmDeleteBtnEl = document.querySelector('#confirmDeleteBtn');
+    confirmDeleteBtnEl.onclick = () => {
+        if (role === 'delete') {
+            const todoEl = event.target.closest('.card');
+            const id = todoEl.dataset.id;           
+            deleteTodo(id);
+        } else if (role === 'deleteAll') {
+            deleteAll();
+        };
+        modal.hide();
+    };
+}
