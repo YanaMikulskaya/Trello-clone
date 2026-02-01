@@ -1,11 +1,10 @@
  export class Todo {
-    id = crypto.randomUUID()
-    createdAt = new Date().toString()
-
-    constructor({ title, description, user, status = 'todo' }) {
+    constructor({ title, description, user, status = 'todo', id, createdAt }) {
         this.title = title
         this.description = description
         this.status = status
         this.user = user
+        this.id = id || crypto.randomUUID();
+        this.createdAt = createdAt || new Date().toLocaleString('ru-RU');
     }
 };

@@ -1,56 +1,71 @@
 import Modal from 'bootstrap/js/dist/modal';
-import { saveDataToStorage, getDataFromStorage } from './localStorage';
-import { Todo } from './constructors';
+import { Todo } from './constructors.js';
+import { getIndexTodoById } from './filter.js';
+import { setState } from './state.js';
 
 
 const dataUser = ['Ivan', 'Yana', 'Tom', 'Dima'];
 let modal = null;
-let state = {
-    data: getDataFromStorage()
-}
-
-function setState(newState) {
-    state = {
-        ...state,
-        ...newState,
-    }
-
-    saveDataToStorage(state.data);
-    //render(state.data)
-    // updateCounter(state.data)
-}
 
 // handle
-export function handleShowModal() {
+export function handleShowModal(event) {
+    const { role } = event.target.dataset;
+
     const modalEl = document.querySelector('#addModal');
 
     modal = new Modal(modalEl);
     modal.show();
-
     initUserSelect();
-
     const formEl = modalEl.querySelector('#form');
     formEl.addEventListener('submit', handleModalSubmit);
     const cancelBtnEl = formEl.querySelector('#cancel');
-    cancelBtnEl.addEventListener('click', handleCanselSubmit);
+    cancelBtnEl.addEventListener('click', handleCanselSubmit);    
+
+    if (role === 'edit') {
+        const todoEl = event.target.closest('.card');
+        const id = todoEl.dataset.id;
+        const indexTodo = getIndexTodoById(id);
+        const todo = state.data[indexTodo];      
+
+        const titleFormEl = modalEl.querySelector('#modalTitle');
+        titleFormEl.value = todo.title;
+        const descriptionEl = modalEl.querySelector('#modalDescription');
+        descriptionEl.value = todo.description;
+        const userSelectEl = modalEl.querySelector('#modalUser');
+        userSelectEl.value = todo.user;        
+        
+        formEl.dataset.editingId = id;        
+    }
 };
 
 function handleModalSubmit(event) {
     event.preventDefault();
     const { currentTarget } = event
+
     const formData = new FormData(currentTarget);
     const todoFormData = Object.fromEntries(formData);
-
-    const todo = new Todo(todoFormData);    
+    const editingId = currentTarget.dataset.editingId;
     const newData = structuredClone(state.data);
-    newData.push(todo);
+
+    if (editingId) {
+        const index = getIndexTodoById(editingId);
+        newData[index] = new Todo({
+            ...newData[index],
+            ...todoFormData,
+            id: editingId
+        });
+        delete currentTarget.dataset.editingId;
+    } else {
+        const todo = new Todo(todoFormData);
+        newData.push(todo);
+    }
 
     setState({
         data: newData,
     });
-    
+
     currentTarget.reset();
-    modal.hide();    
+    modal.hide();
 };
 
 function handleCanselSubmit(event) {
