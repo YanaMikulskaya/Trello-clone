@@ -1,10 +1,8 @@
 import Modal from 'bootstrap/js/dist/modal';
 import { Todo } from './constructors.js';
 import { getIndexTodoById } from './filter.js';
-import { setState } from './state.js';
+import { setState, state } from './state.js';
 
-
-const dataUser = ['Ivan', 'Yana', 'Tom', 'Dima'];
 let modal = null;
 
 // handle
@@ -15,26 +13,26 @@ export function handleShowModal(event) {
 
     modal = new Modal(modalEl);
     modal.show();
-    initUserSelect();
+    
     const formEl = modalEl.querySelector('#form');
     formEl.addEventListener('submit', handleModalSubmit);
     const cancelBtnEl = formEl.querySelector('#cancel');
-    cancelBtnEl.addEventListener('click', handleCanselSubmit);    
+    cancelBtnEl.addEventListener('click', handleCanselSubmit);
 
     if (role === 'edit') {
         const todoEl = event.target.closest('.card');
         const id = todoEl.dataset.id;
         const indexTodo = getIndexTodoById(id);
-        const todo = state.data[indexTodo];      
+        const todo = state.data[indexTodo];
 
         const titleFormEl = modalEl.querySelector('#modalTitle');
         titleFormEl.value = todo.title;
         const descriptionEl = modalEl.querySelector('#modalDescription');
         descriptionEl.value = todo.description;
         const userSelectEl = modalEl.querySelector('#modalUser');
-        userSelectEl.value = todo.user;        
-        
-        formEl.dataset.editingId = id;        
+        userSelectEl.value = todo.user;
+
+        formEl.dataset.editingId = id;
     }
 };
 
@@ -76,16 +74,4 @@ function handleCanselSubmit(event) {
         form.reset();
         modal.hide();
     }
-};
-
-// helper
-function initUserSelect() {
-    const userSelect = document.querySelector('#modalUser');
-    const firstOption = userSelect.options[0];
-    let optionsHTML = '';
-    dataUser.forEach((user) => {
-        const userValue = user.toLowerCase();
-        optionsHTML += `<option value="${userValue}">${user}</option>`;
-    });
-    userSelect.innerHTML = firstOption.outerHTML + optionsHTML;
 };

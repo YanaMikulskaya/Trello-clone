@@ -1,4 +1,7 @@
 import Modal from 'bootstrap/js/dist/modal';
+import { getIndexTodoById } from './filter';
+import { state, setState } from './state';
+import { handleShowModal } from './modal';
 
 // HTML card
 function buildTodoTemplate({ id, title, description, createdAt, status, user }) {
