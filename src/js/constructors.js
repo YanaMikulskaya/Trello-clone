@@ -1,4 +1,4 @@
- export class Todo {
+export class Todo {
     constructor({ title, description, user, status = 'todo', id, createdAt }) {
         this.title = title
         this.description = description

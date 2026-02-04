@@ -1,16 +1,21 @@
-import { getDataFromStorage, saveDataToStorage } from './localStorage.js';
-import { renderTodos } from './renderTodos.js';
+import { getDataFromStorage, saveDataToStorage } from './storageService.js';
+import { updateUI } from './updateUI.js';
 
-export let state = {
+let state = {
     data: getDataFromStorage()
 };
 
-export function setState(newState) {
+function setState(newState) {
     state = {
         ...state,
         ...newState,
     }
 
     saveDataToStorage(state.data);
-    renderTodos();
+    updateUI();
+};
+
+export {
+    state,
+    setState
 };

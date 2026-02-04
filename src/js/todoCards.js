@@ -1,4 +1,4 @@
-import { getIndexTodoById } from './filter';
+import { getIndexTodoById } from './todoQueries';
 import { state, setState } from './state';
 import { handleShowModal, handleShowModalConfirm } from './modals';
 
@@ -68,27 +68,8 @@ function handleChangeSelectStatus(event) {
     };
 };
 
-function deleteTodo(id) {
-    const indexTodo = getIndexTodoById(id);
-    const newData = structuredClone(state.data);
-    newData.splice(indexTodo, 1);
-
-    setState({
-        data: newData,
-    });
-};
-
-function deleteAll() {
-    const newData = state.data.filter(todo => todo.status !== 'done');
-    setState({
-        data: newData,
-    });
-}
-
 export {
     buildTodoTemplate,
     handleClickTodo,
-    handleChangeSelectStatus,
-    deleteTodo,
-    deleteAll
+    handleChangeSelectStatus,    
 };

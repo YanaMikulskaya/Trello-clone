@@ -8,7 +8,12 @@ function getIndexTodoById(id) {
     return state.data.findIndex((todo) => todo.id === id);
 };
 
+function getActiveTodos() {
+    return state.data.filter(todo => todo.status !== 'done');
+};
+
 export {
     getIndexTodoById,
-    getTodosByStatus
-}
+    getTodosByStatus,
+    getActiveTodos,      
+};
