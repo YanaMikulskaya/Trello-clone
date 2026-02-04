@@ -14,4 +14,4 @@ function getDataFromStorage() {
 export {
     saveDataToStorage,
     getDataFromStorage
-}
+};
