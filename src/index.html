@@ -50,7 +50,8 @@
           </div>
           <div class="column__list p-2 overflow-auto d-flex flex-column gap-2 flex-grow-1" id="listDone">
           </div>
-          <button class="column__btn btn btn-success btn-lg w-100 rounded-0 mt-auto" type="button" id="deleteAll" data-role="deleteAll">Delete all</button>
+          <button class="column__btn btn btn-success btn-lg w-100 rounded-0 mt-auto" type="button" id="deleteAll"
+            data-role="deleteAll">Delete all</button>
         </div>
       </div>
     </div>
@@ -83,6 +84,19 @@
             <div class="modal__wrapp d-flex gap-2 justify-content-end">
               <button type="button" class="btn btn-light" data-bs-dismiss="modal">Cancel</button>
               <button type="button" class="btn btn-danger" id="confirmDeleteBtn">Confirm</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- Modal -->
+    <div class="modal fade" tabindex="-1" id="limitModal">
+      <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content bg-danger-subtle">
+          <div class="modal-body">
+            <p class="h5 mb-3 text-center">Cannot exceed 6 tasks in "In Progress" status</p>
+            <div class="modal__wrapp d-flex gap-2 justify-content-end">
+              <button type="button" class="btn btn-danger" id="agreementBtn" data-bs-dismiss="modal">OK</button>
             </div>
           </div>
         </div>

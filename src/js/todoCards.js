@@ -1,6 +1,6 @@
-import { getIndexTodoById } from './todoQueries';
+import { getIndexTodoById, getTodosByStatus } from './todoQueries';
 import { state, setState } from './state';
-import { handleShowModal, handleShowModalConfirm } from './modals';
+import { handleShowModal, handleShowModalConfirm, showModalLimit } from './modals';
 
 // Генерирует HTML-шаблон для отображения задачи
 function buildTodoTemplate({ id, title, description, createdAt, status, user }) {
@@ -68,8 +68,23 @@ function handleChangeSelectStatus(event) {
         const id = todoEl.dataset.id;
         // Находим индекс задачи в массиве
         const indexTodo = getIndexTodoById(id);
+        // Получаем текущий статус задачи
+        const currentStatus = state.data[indexTodo].status;
         // Получаем новый выбранный статус
         const newStatus = event.target.value;
+
+        // прерываем выполнение функции, если статус не меняется
+        if (newStatus === currentStatus) return;
+        
+        // Проверяем лимит при переходе в "inProgress"
+        if (newStatus === 'inProgress') {
+            const countInProgress = getTodosByStatus('inProgress').length;
+            if (countInProgress >= 6) {
+                showModalLimit();
+                event.target.value = currentStatus;
+                return;
+            }
+        }
         // Создаем копию данных и обновляем статус
         const newData = structuredClone(state.data);
         newData[indexTodo].status = newStatus;
