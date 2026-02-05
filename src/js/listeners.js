@@ -2,6 +2,7 @@ import { addTodoBtnEl, listTodoEl, listInProgressEl, listDoneEl, deleteAllBtnEl,
 import { handleShowModal, handleShowModalConfirm, handleModalSubmit, handleCanselSubmit, handleClickConfirm } from './modals.js';
 import { handleClickTodo, handleChangeSelectStatus } from './todoCards.js';
 
+// Добавление обработсиков событий
 export function initEventListeners() {
     // Кнопки действий
     addTodoBtnEl.addEventListener('click', handleShowModal);
@@ -16,7 +17,7 @@ export function initEventListeners() {
     // Форма добавления/редактирования
     formEl.addEventListener('submit', handleModalSubmit);
     cancelBtnEl.addEventListener('click', handleCanselSubmit);
-    
+
     // Кнопка подтверждения удаления
     confirmDeleteBtnEl.addEventListener('click', handleClickConfirm);
 }
