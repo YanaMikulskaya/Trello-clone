@@ -1,12 +1,18 @@
+// clock
 const clockEl = document.querySelector('.header__clock');
+
+// board
+// btns
 const addTodoBtnEl = document.querySelector('#addTodoBtn');
+const deleteAllBtnEl = document.querySelector('#deleteAll');
+// counts
 const countTodoEl = document.querySelector('#countTodo');
 const countInProgressEl = document.querySelector('#countInProgress');
 const countDoneEl = document.querySelector('#countDone');
+// lists
 const listTodoEl = document.querySelector('#listTodo');
 const listInProgressEl = document.querySelector('#listInProgress');
 const listDoneEl = document.querySelector('#listDone');
-const deleteAllBtnEl = document.querySelector('#deleteAll');
 
 // modal
 const addModalEl = document.querySelector('#addModal');
