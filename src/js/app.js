@@ -1,14 +1,13 @@
-import { createClock } from './createClock.js';
-import { updateUI } from './updateUI.js';
-import { initEventListeners } from './listeners.js';
-import { initUserSelect } from './userService.js';
+import { createClock } from "./clock.js";
+import { updateUI } from "./updateUI.js";
+import { initEventListeners } from "./eventHandlers.js";
+import { initUserSelect } from "./userService.js";
 
 // Обработчик события полной загрузки DOM дерева
-document.addEventListener('DOMContentLoaded', async () => {
+document.addEventListener("DOMContentLoaded", async () => {
+  createClock(); // Инициализация часов
+  updateUI(); // Первоначальная отрисовка интерфейса
+  initEventListeners(); // Настройка всех обработчиков событий
 
-    createClock(); // Инициализация часов
-    updateUI(); // Первоначальная отрисовка интерфейса
-    initEventListeners(); // Настройка всех обработчиков событий
-
-    await initUserSelect(); // Асинхронная инициализация выбора пользователей
+  await initUserSelect(); // Асинхронная инициализация выбора пользователей
 });
